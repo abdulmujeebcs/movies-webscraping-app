@@ -33,23 +33,3 @@ services:
     volumes:
       - ./:/var/www/html
     entrypoint: ["php", "/var/www/html/artisan"]
-
-  npm:
-    image: node:latest
-    working_dir: /var/www/html
-    entrypoint: ["npm"]
-    volumes:
-      - ./:/var/www/html
-
-  mysql:
-    image: mysql:latest
-    restart: always
-    env_file:
-      - ./.env
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - "6300:3306"
