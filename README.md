@@ -25,19 +25,28 @@ cp .env.example .env
 Key genration for application
 
 ```bash
-php artisan key:generate
+docker-compose run artisan key:generate
 ```
 
 ```bash
-php artisan optimize
+docker-compose run artisan optimize
 ```
 
 ## Run Migrations
 
 ```bash
-php artisan migrate
+docker-compose run artisan migrate
 ```
 
+# Usage: Top 250 IMDB Movies
+
+```bash
+docker-compose run artisan storage:link
+docker-compose run artisan import:top-imdb-movies
+```
+
+- Scraping URL: https://m.imdb.com/chart/top/
+- Outcome / Extracted movies available in JSON format: http://localhost:8000/storage/top-imdb-movies.json
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first

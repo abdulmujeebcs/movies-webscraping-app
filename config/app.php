@@ -57,6 +57,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'imdb_url' => env('IMDB_URL', 'https://m.imdb.com'),
+
     'asset_url' => env('ASSET_URL'),
 
     /*
