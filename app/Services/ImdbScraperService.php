@@ -34,14 +34,14 @@ class ImdbScraperService implements ScraperInterface
 
         // Iterate through the movie titles
         for ($i = 0; $i < count($movie_titles); $i++) {
-            $title = $movie_titles[$i]->nodeValue;
+            $title = $movie_titles[$i]?->nodeValue;
             preg_match('/^([\d.]+)/', $movie_ratings[$i]?->nodeValue, $matches);
             $rating = @$matches[0];
 
             $movies[] = [
                 'title' => Str::after($title, '. '),
                 'rating' => $rating,
-                'url' => $movie_links[$i]->nodeValue,
+                'url' => $movie_links[$i]?->nodeValue,
                 'release_year' => $movie_release_years[$i]?->nodeValue,
                 'duration' => $movie_durations[$i]?->nodeValue,
             ];
