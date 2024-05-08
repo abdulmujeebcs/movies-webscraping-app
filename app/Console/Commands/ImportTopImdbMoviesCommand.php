@@ -31,18 +31,20 @@ class ImportTopImdbMoviesCommand extends Command
      */
     public function handle()
     {
-        $url = config('app.imdb_url') . '/chart/top/';
-
-        // Run Scraper Service
-        $movies = $this->scraper
-        ->init($url)
-        ->scrape();
-        
-       
-        $jsonData = json_encode($movies, JSON_PRETTY_PRINT);
-        $filePath = 'top-imdb-movies.json';
-
-        // Write the JSON data to a file
-        Storage::disk('public')->put($filePath, $jsonData);
+        try {
+            $url = config('app.imdb_url') . '/chart/top/';
+            // Run Scraper Service
+            $movies = $this->scraper->init($url)
+                ->scrape();
+           
+            $jsonData = json_encode($movies, JSON_PRETTY_PRINT);
+            $filePath = 'top-imdb-movies.json';
+    
+            // Write the JSON data to a file
+            Storage::disk('public')->put($filePath, $jsonData);
+        } catch(\Exception $ex) {
+            echo 'Scrapping Exception occured  >>>';
+            echo $ex->getMessage();
+        }
     }
 }
