@@ -32,16 +32,17 @@ docker-compose run artisan key:generate
 docker-compose run artisan optimize
 ```
 
-## Run Migrations
-
 ```bash
 docker-compose run artisan migrate
 ```
 
-# Usage: Top 250 IMDB Movies
+## Usage: Top 250 IMDB Movies
 
 ```bash
 docker-compose run artisan storage:link
+```
+
+```bash
 docker-compose run artisan import:top-imdb-movies
 ```
 
