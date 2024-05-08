@@ -1,19 +1,14 @@
 # Movies Scrapper App
 
-A software application equipped with a built-in web scraper designed to gather information about movies from across the globe.
+A software application equipped with a built-in web scraper designed to gather information about top movies from across the globe.
 
 ## Technical Stack
-- PHP >= 8.1
-- Laravel 10
+- PHP >= 8.1, Laravel 10
 
 ## Project Setup
 Clone the project source code from the [Repository](https://github.com/abdulmujeebcs/movies-webscraping-app).
 ```bash
 git clone https://github.com/abdulmujeebcs/movies-webscraping-app
-```
-
-```bash
-docker-compose run composer install
 ```
 
 Update your `.env` file Information before serving the application
@@ -22,7 +17,17 @@ Update your `.env` file Information before serving the application
 cp .env.example .env
 ```
 
+Create containers using DockerCompose
+
+```bash
+docker-compose up -d
+```
+
 Key genration for application
+
+```bash
+docker-compose run composer install
+```
 
 ```bash
 docker-compose run artisan key:generate
@@ -32,15 +37,8 @@ docker-compose run artisan key:generate
 docker-compose run artisan optimize
 ```
 
-```bash
-docker-compose run artisan migrate
-```
+## Usage: Top 250 IMDB Movies (file located at storage/app/public directory)
 
-## Usage: Top 250 IMDB Movies
-
-```bash
-docker-compose run artisan storage:link
-```
 
 ```bash
 docker-compose run artisan import:top-imdb-movies
@@ -48,9 +46,3 @@ docker-compose run artisan import:top-imdb-movies
 
 - Scraping URL: https://m.imdb.com/chart/top/
 - Outcome / Extracted movies available in JSON format: http://localhost:8000/storage/top-imdb-movies.json
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
