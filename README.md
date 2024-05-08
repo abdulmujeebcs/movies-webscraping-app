@@ -37,4 +37,5 @@ docker-compose run artisan import:top-imdb-movies
 ```
 
 - Scraping URL: https://m.imdb.com/chart/top/
-- Outcome / Extracted movies available in JSON format: http://localhost:8000/storage/top-imdb-movies.json
+- Outcome / Extracted movies available in JSON format:
+- file located at storage/app/public directory
