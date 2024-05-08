@@ -29,14 +29,6 @@ Key genration for application
 docker-compose run composer install
 ```
 
-```bash
-docker-compose run artisan key:generate
-```
-
-```bash
-docker-compose run artisan optimize
-```
-
 ## Usage: Top 250 IMDB Movies (file located at storage/app/public directory)
 
 
